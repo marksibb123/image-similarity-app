@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { algorithm } from './matchingAlgorithm';
 
-function App() {
+const App = () => {
+  const [result, setResult] = useState([]);
+
+  function submit() {
+    const inputValue = document.getElementById("myInput").value;
+    algorithm(inputValue, setResult)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ padding: '10px' }}>
+      <div><b>Enter image name, for example 2.jpg</b></div>
+      <input id="myInput" type="text" />
+      <button onClick={submit}>Submit</button>
+      <ul>
+        {result.map(item => (
+          <li key={item.id}>
+            <b>Image:</b> {item.id} <b>Similarity Score:</b> {item.similarityScore}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

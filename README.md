@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Image Similarity App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### The App
 
-## Available Scripts
+This is an application used to rank your selected image against the list of images that are stored in 'data.json'.
 
-In the project directory, you can run:
+It makes use of the 'description' and 'score' to compare against each of the other images in the 'data.json'. Resulting in a list from most, to least similar.
 
-### `npm start`
+### To Run
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Once the repo is cloned, it should be able to run using 'npm install' followed by 'npm start'.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Trade-off's
 
-### `npm test`
+Some trade-offs made to fit the time limit include:
+- More time testing the algorithm itself, unit tests would be handy here.
+- This application is built in a React project, so I would of liked to have several React components (e.g a container, input, and list output components).
+- Improving the user interface, for example, it currently outputs a list of each jpg name and the similarity score. An improvement on this would be to show the similar images as a JPG. And only show the images that are above a certain level of similarity.
+- I would of liked to break up the 'algorithm' code into seperate functions for readability.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Deploying to Production Considerations
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Before deployment to production I would:
+- Ensure all the 'Trade-off' points are met.
+- If there is a large image list in the future, the extensive looping algorithm could consume too much time, and memory when run. Therefore testing of this algorithm with larger 'data.json' files should be considered.
+- Configure the front-end to fetch the 'data.json' from an API, and only fetch the required fields.
